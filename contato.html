@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Index.html">Sobre mim</a></li>
+            <li><a href="formacao.html">Formação educacional</a></li>
+            <li><a href="portifolio.html">Portfólio</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            text-shadow: 1px 1px 1px rgb(131, 131, 131);
+            background-color: #333; /* Cor de fundo para contraste */
+        }
+        .container {
+            display: grid;
+        }
+        .menu {
+            grid-column-start: 0;
+            grid-column-end: 1;
+            justify-content: center;
+            gap: 0px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+        }
+        p {
+            line-height: 1.5;
+            text-align: center;
+        }
+        .form-container,
+        .thank-you-container {
+            background-color: #fcadad;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(250, 181, 181, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin: 0 auto;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            text-align: right;
+            vertical-align: middle;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+            color: #ffffff;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f7a3a3;
+            color: #ffffff;
+        }
+        textarea{ resize: vertical;
+            height: 150px;
+        }
+        button {
+            background-color: #5cb85c;
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .thank-you-container {
+            display: none; /* Esconde a mensagem de agradecimento inicialmente */
+        }
+    </style>
+    <main>
+        <h1>Para contatos</h1>
+        <p>
+            <div class="form-container">
+                <form id="contactForm" action="/submit-form" method="post" onsubmit="handleSubmit(event)">
+                    <table>
+                        <tr>
+                            <th><label for="name">Nome:</label></th>
+                            <td><input type="text" id="name" name="name" required></td>
+                        </tr>
+                        <tr>
+                            <th><label for="email">Email:</label></th>
+                            <td><input type="email" id="email" name="email" required></td>
+                        </tr>
+                        <tr>
+                            <th><label for="message">Mensagem:</label></th>
+                            <td><textarea  id="message" name="message" rows="5" placeholder="Digite sua mensagem" required></textarea></td>
+                        <tr>
+                            <td></td>
+                            <td><button type="submit">Enviar</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="thank-you-container" id="thankYouMessage">
+                <h1>Obrigado!</h1>
+                <p>Seu formulário foi enviado com sucesso</p>
+            </div>
+        </p>
+    </main>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Esconde o formulário
+            document.querySelector('.form-container').style.display = 'none';
+
+            // Mostra a mensagem de agradecimento
+            document.getElementById('thankYouMessage').style.display = 'block';
+
+        
+        }
+    </script>
+</body>
+<footer>
+    <p>Um mundo colorido</p>
+</footer>
+</html>
